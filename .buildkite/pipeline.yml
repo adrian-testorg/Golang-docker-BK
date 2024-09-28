@@ -15,6 +15,7 @@ steps:
     commands: 
       - ls
       - cd hello
+      - ls
       - chmod +x hello/hello
       - ./hello/hello buildkite ftw
     plugins:
