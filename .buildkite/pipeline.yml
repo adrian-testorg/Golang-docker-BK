@@ -1,13 +1,12 @@
 steps:
+  - label: ":pipeline: Pipeline upload"
+    command: buildkite-agent pipeline upload
+
+steps:
 label: "Build Go App"
   - commands: 
     - cd hello
     - go build
-    plugins:
-      - docker#v5.11.0:
-          image: "golang:latest"
-
-steps:
 label: "Run Go App"
   - commands: 
     - ls
