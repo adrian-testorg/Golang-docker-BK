@@ -2,6 +2,7 @@ steps:
   - label: "Build Go App"
     key: "build"
     commands: 
+      - buildkite-agent meta-data set "release-version" "1.1"
       - cd hello
       - go build
    
@@ -15,17 +16,18 @@ steps:
     key: "manualapproval"
     depends_on: "build"
     block: ":rocket: Are we ready to deploy?"
-
-  - label: "Run Go App"
-    depends_on: "manualapproval"
     prompt: "Who do you want to say hello to?"
     fields:
       - text: "Your name"
         key: "name"
+
+  - label: "Run Go App"
+    depends_on: "manualapproval"
     commands: 
       - cd hello
       - go build
       - chmod +x ./hello
+      - echo $(buildkite-agent meta-data get "release-version")
       - ./hello $(buildkite-agent meta-data get name)
     plugins:
       - docker#v5.11.0:
