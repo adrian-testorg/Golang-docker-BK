@@ -24,7 +24,9 @@ steps:
 
   - label: "Run Go App"
     depends_on: "manualapproval"
+  - command: echo $(buildkite-agent meta-data get name)  
     commands: 
+      - echo $(buildkite-agent meta-data get name)
       - cd hello
       - go build
       - chmod +x ./hello 
