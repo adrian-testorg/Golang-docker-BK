@@ -10,6 +10,9 @@ steps:
           volumes:
             - "./hello:/app"  
 
+steps:
+  - block: ":rocket: Are we ready to deploy?"
+
   - label: "Run Go App"
     depends_on: "build"
     commands: 
