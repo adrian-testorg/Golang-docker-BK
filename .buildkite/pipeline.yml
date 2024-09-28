@@ -12,6 +12,7 @@ steps:
 
 steps:
   - block: ":rocket: Are we ready to deploy?"
+    depends_on: "build"
 
   - label: "Run Go App"
     depends_on: "build"
