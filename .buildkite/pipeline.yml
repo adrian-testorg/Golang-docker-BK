@@ -19,7 +19,7 @@ steps:
     fields:
       - text: "Your name"
         key: "name"
-   command: name.sh
+  - command: name.sh
 
   - label: "Run Go App"
     depends_on: "manualapproval"
