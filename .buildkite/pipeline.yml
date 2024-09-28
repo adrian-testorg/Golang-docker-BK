@@ -12,11 +12,12 @@ steps:
             - "./hello:/app"  
             
   - label: "APPROVE ME PLZ"
+    key: "Manual Approval"
     block: ":rocket: Are we ready to deploy?"
     depends_on: "build"
 
   - label: "Run Go App"
-    depends_on: "build"
+    depends_on: "Manual Approval"
     commands: 
       - cd hello
       - go build
