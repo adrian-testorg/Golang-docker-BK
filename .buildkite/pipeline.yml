@@ -1,6 +1,6 @@
 
 steps:
- - label: "my go build
+ - label: "my go build"
    key: "buildmefirst"
    commands:
     - "cd hello"
