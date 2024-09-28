@@ -1,0 +1,4 @@
+steps:
+  - label: ":hammer: Example Script"
+    command: echo "This is my first build="
+    artifact_paths: "artifacts/*"
