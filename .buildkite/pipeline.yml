@@ -1,8 +1,8 @@
 
 steps:
-  - label: "echo hello"
-  - command: cd hello
-    command: go build  
+ - label: "echo hello"
+  - command: echo "do-something"
+  - command: echo "do-something-else"
 
 
 
