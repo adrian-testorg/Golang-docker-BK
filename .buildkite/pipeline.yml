@@ -2,7 +2,7 @@
 steps:
   - label: "echo hello"
   - command: cd hello
-  - command: go build  
+    command: go build  
 
 
 
