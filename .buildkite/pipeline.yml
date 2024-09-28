@@ -1,5 +1,5 @@
 steps:
-  - command: "go build ./hello/"
+  - command: "ls"
     plugins:
       - docker#v5.11.0:
           image: "golang:1.11"
