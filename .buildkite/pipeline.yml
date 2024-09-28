@@ -2,7 +2,8 @@ steps:
   - label: "Build Go App"
     key: "build"
     commands: 
-
+      - cd hello
+      - go build
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
