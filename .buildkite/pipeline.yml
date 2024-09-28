@@ -4,14 +4,15 @@ steps:
     commands: 
       - cd hello
       - go build
+   
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
           volumes:
             - "./hello:/app"  
-
-steps:
-  - block: ":rocket: Are we ready to deploy?"
+            
+  - label: "APPROVE ME PLZ"
+    block: ":rocket: Are we ready to deploy?"
     depends_on: "build"
 
   - label: "Run Go App"
