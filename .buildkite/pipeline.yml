@@ -9,7 +9,7 @@ steps:
         image: "golang:latest"
 
   - label: "Run Go App"
-    depends_on: ["build"|
+    depends_on: "build"
     commands: 
     - ls
     - chmod +x ./hello
