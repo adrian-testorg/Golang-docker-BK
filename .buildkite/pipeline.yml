@@ -1,8 +1,4 @@
 steps:
-  - label: ":pipeline: Pipeline upload"
-    command: buildkite-agent pipeline upload
-
-steps:
 label: "Build Go App"
   - commands: 
     - cd hello
