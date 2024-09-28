@@ -4,6 +4,7 @@ steps:
     commands: 
       - cd hello
       - go build
+      - ls
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
@@ -21,5 +22,6 @@ steps:
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
+          pull: false 
           volumes:
             - "./hello:/app" 
