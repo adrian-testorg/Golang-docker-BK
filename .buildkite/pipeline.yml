@@ -1,9 +1,9 @@
 steps:
-label: "Build Go App"
+  - label: "Build Go App"
   - commands: 
     - cd hello
     - go build
-label: "Run Go App"
+  - label: "Run Go App"
   - commands: 
     - ls
     - chmod +x .
