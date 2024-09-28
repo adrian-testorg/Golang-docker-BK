@@ -1,16 +1,9 @@
-
 steps:
- - label: "my go build"
-   key: "buildmefirst"
-   commands:
-    - "cd hello"
-    - "go build"
-    - "ls"
+  - command: "go build ./hello/"
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:1.11"
 
 
- - label: "execute hello world"
-   commands:
-     - "chmod +x hello/hello"
-     - "./hello/hello John Doe"
-   depends_on: ["buildmefirst"]
+
 
