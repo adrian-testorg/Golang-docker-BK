@@ -19,16 +19,10 @@ steps:
     fields:
       - text: "Your name"
         key: "name"
-  - commands: 
-      - NAME=""
-      - until [ ${#NAME} -gt 0 ]
-      - do
-      - echo "Script is checking for name"
-      - NAME=$(buildkite-agent meta-data get name)
-      - echo "$NAME"
-      - sleep 5
-      - done
-      - echo "$NAME"
+  - command: name.sh 
+  - command: echo "$NAME"
+  - command: NAME=$(buildkite-agent meta-data get name)
+  - command: echo "$NAME"
 
   - label: "Run Go App"
     depends_on: "manualapproval"
