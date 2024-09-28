@@ -27,8 +27,7 @@ steps:
       - cd hello
       - go build
       - chmod +x ./hello
-      - echo $(buildkite-agent meta-data get "release-version")
-      - ./hello $(buildkite-agent meta-data get name)
+      - ./hello $(NAME)
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
