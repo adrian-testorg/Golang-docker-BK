@@ -4,11 +4,22 @@ steps:
     commands: 
       - cd hello
       - go build
-      - block: "Are we ready to deploy?"
-      - chmod +x ./hello
-      - ./hello buildkite ftw
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
+          volumes:
+            - "./hello:/app"  
 
-
+  - label: "Run Go App"
+    depends_on: "build"
+    commands: 
+      - ls
+      - cd hello
+      - ls
+      - chmod +x hello/hello
+      - ./hello/hello buildkite ftw
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:latest"
+          volumes:
+            - "./hello:/app" 
