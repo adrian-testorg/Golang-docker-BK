@@ -2,8 +2,7 @@ steps:
   - label: "Build Go App"
     key: "build"
     commands: 
-      - cd hello
-      - go build
+
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
@@ -13,9 +12,8 @@ steps:
   - label: "Run Go App"
     depends_on: "build"
     commands: 
-      - ls
       - cd hello
-      - ls
+      - go build
       - chmod +x hello/hello
       - ./hello/hello buildkite ftw
     plugins:
