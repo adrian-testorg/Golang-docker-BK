@@ -14,6 +14,10 @@ steps:
   - label: "APPROVE ME PLZ"
     key: "manualapproval"
     block: ":rocket: Are we ready to deploy?"
+    prompt: "Who do you want to say hello to?"
+    fields:
+      - text: "Your name"
+        key: "name"
     depends_on: "build"
 
   - label: "Run Go App"
