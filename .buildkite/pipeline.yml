@@ -20,7 +20,7 @@ steps:
       - text: "Your name"
         key: "name"
   - command: NAME=$(buildkite-agent meta-data get name)
-  - command: echo $NAME
+  - command: echo "$NAME"
   - command: echo $(NAME)
 
   - label: "Run Go App"
