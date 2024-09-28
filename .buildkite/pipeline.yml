@@ -1,5 +1,6 @@
 steps:
   - label: "Build Go App"
+    key: "build"
     commands: 
     - cd hello
     - go build
@@ -8,6 +9,7 @@ steps:
         image: "golang:latest"
 
   - label: "Run Go App"
+    depends_on:["build"|
     commands: 
     - ls
     - chmod +x ./hello
