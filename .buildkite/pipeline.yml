@@ -4,6 +4,8 @@ steps:
     - cd hello
     - ls
     - go build
+    - chmod +x .
+    - ./hello Buildkite ftw
     plugins:
       - docker#v5.11.0:
           image: "golang:1.11"
