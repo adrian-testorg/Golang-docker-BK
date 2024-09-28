@@ -3,10 +3,14 @@ steps:
     commands: 
     - cd hello
     - go build
+    plugins:
+    - docker#v5.11.0:
+      image: "golang:latest"
+
   - label: "Run Go App"
     commands: 
     - ls
-    - chmod +x .
+    - chmod +x ./hello/hello
     - ./hello Buildkite ftw
     plugins:
       - docker#v5.11.0:
