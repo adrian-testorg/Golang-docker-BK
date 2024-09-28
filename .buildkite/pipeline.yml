@@ -1,7 +1,10 @@
+
 steps:
+  - label: ":pipeline: Pipeline upload"
+    command: buildkite-agent pipeline upload
   - label: "build go app"
-  - command: "cd hello"
-  - command: "go build"
-  - command: "chmod +x hello/hello"
-  - command: "./hello/hello Buildkite ftw"
+  - command: cd hello
+  - command: go build
+  - command: chmod +x hello/hello
+  - command: ./hello/hello Buildkite ftw
 
