@@ -4,7 +4,7 @@ steps:
     commands: 
       - cd hello
       - go build
-      - ls
+      - block: "Are we ready to deploy?"
       - chmod +x ./hello
       - ./hello buildkite ftw
     plugins:
