@@ -1,10 +1,10 @@
 steps:
   - label: "Build Go App"
-  - commands: 
+    commands: 
     - cd hello
     - go build
   - label: "Run Go App"
-  - commands: 
+    commands: 
     - ls
     - chmod +x .
     - ./hello Buildkite ftw
