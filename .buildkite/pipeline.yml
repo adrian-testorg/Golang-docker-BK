@@ -1,17 +1,16 @@
 steps:
-  - label: "Build Go App"
+  - label: "Build Go App" # Build go app in docker image
     key: "build"
     commands: 
       - cd hello
       - go build
-      - ls
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
     artifact_paths:
       - "hello/hello"
             
-  - label: "APPROVE ME PLZ"
+  - label: "APPROVE ME PLZ" #Approval stage to proceed after build
     key: "manualapproval"
     depends_on: "build"
     block: ":rocket: Are we ready to deploy?"
@@ -19,10 +18,9 @@ steps:
     fields:
       - text: "Your name"
         key: "name"
-  - command: name.sh 
-  - command: echo $(buildkite-agent meta-data get name)
+  - command: echo $(buildkite-agent meta-data get name) # Check to ensure name has passed through
 
-  - label: "Run Go App"
+  - label: "Run Go App" # Downloads build and executes binary based off name input
     depends_on: "manualapproval"
     commands: 
       - ls 
