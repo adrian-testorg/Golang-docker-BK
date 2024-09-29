@@ -4,12 +4,11 @@ steps:
     commands: 
       - cd hello
       - go build
-   
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
-          volumes:
-            - "./hello:/app"  
+          artifact_paths:
+            - "hello/hello"
             
   - label: "APPROVE ME PLZ"
     key: "manualapproval"
@@ -25,13 +24,10 @@ steps:
   - label: "Run Go App"
     depends_on: "manualapproval"
     commands: 
+      - ls 
       - echo $(buildkite-agent meta-data get name)
       - cd hello
       - go build
       - chmod +x ./hello 
       - ./hello $(buildkite-agent meta-data get name)
-    plugins:
-      - docker#v5.11.0:
-          image: "golang:latest"
-          volumes:
-            - "./hello:/app" 
+
