@@ -29,8 +29,6 @@ steps:
       - mkdir goapp
       - buildkite-agent artifact download 'hello/hello' ./goapp
       - cd goapp
-      - ls
-      - echo $(buildkite-agent meta-data get name)
       - cd hello
       - chmod +x ./hello 
       - ./hello $(buildkite-agent meta-data get name)
