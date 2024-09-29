@@ -15,10 +15,11 @@ steps:
     depends_on: "build"
     block: ":rocket: Are we ready to deploy?"
     prompt: "Who do you want to say hello to?"
-    required: yes
+  
     fields:
       - text: "Your name"
         key: "name"
+        required: true
   - command: echo $(buildkite-agent meta-data get name) # Check to ensure name has passed through
 
   - label: "Run Go App" # Downloads build and executes binary based off name input
