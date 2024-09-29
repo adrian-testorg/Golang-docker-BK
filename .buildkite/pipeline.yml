@@ -8,8 +8,8 @@ steps:
     plugins:
       - docker#v5.11.0:
           image: "golang:latest"
-          artifact_paths:
-            - "hello/hello"
+    artifact_paths:
+      - "hello/hello"
             
   - label: "APPROVE ME PLZ"
     key: "manualapproval"
